@@ -17,8 +17,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Calculate direction
-	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left") # right is 1, left is -1, right+left is 0
-	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	#direction.x = Input.get_action_strength("right") - Input.get_action_strength("left") # right is 1, left is -1, right+left is 0
+	#direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
+	direction = Vector2(
+		Input.get_axis("left", "right"),
+		Input.get_axis("up", "down")
+	).normalized()
 	
 	pass
 
