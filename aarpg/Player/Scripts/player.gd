@@ -8,12 +8,13 @@ var direction : Vector2 = Vector2.ZERO
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var state_machine : PlayerStateMachine = $StateMachine
 
-signal DirectionChanged(new_direction : Vector2)
+signal direction_changed(new_direction : Vector2)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state_machine.Initialize(self)
+	PlayerManager.player = self
+	state_machine.initialize(self)
 	pass # Replace with function body.
 
 
@@ -34,7 +35,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func SetDirection() -> bool:
+func set_direction() -> bool:
 	if direction == Vector2.ZERO: # no new direction
 		return false
 	
@@ -46,17 +47,17 @@ func SetDirection() -> bool:
 		return false
 	
 	cardinal_direction = new_direction
-	DirectionChanged.emit(new_direction)
+	direction_changed.emit(new_direction)
 	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1 # flip sprite
 	return true 
 
 
-func UpdateAnimation(state : String) -> void:
-	animation_player.play(state + "_" + AnimDirection())
+func update_animation(state : String) -> void:
+	animation_player.play(state + "_" + anim_direction())
 	pass
 
 
-func AnimDirection() -> String:
+func anim_direction() -> String:
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
 	elif cardinal_direction == Vector2.UP:

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dnk2jpthv6755"]
 
-[ext_resource type="Script" uid="uid://brlctevscwyts" path="res://Props/Plants/plant.gd" id="1_djs60"]
-[ext_resource type="Texture2D" uid="uid://boodt28ef8y4f" path="res://Props/Sprites/Props.png" id="1_qsug5"]
-[ext_resource type="PackedScene" uid="uid://xjojbl1e3882" path="res://GeneralNodes/HitBox/hit_box.tscn" id="2_djs60"]
+[ext_resource type="Script" uid="uid://brlctevscwyts" path="res://Props/plants/plant.gd" id="1_djs60"]
+[ext_resource type="Texture2D" uid="uid://boodt28ef8y4f" path="res://Props/sprites/Props.png" id="1_qsug5"]
+[ext_resource type="PackedScene" uid="uid://xjojbl1e3882" path="res://GeneralNodes/hit_box/hit_box.tscn" id="2_djs60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djs60"]
 size = Vector2(28, 30)

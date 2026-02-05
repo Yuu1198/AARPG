@@ -15,11 +15,11 @@ var attacking : bool = false
 
 
 ## What happens when the player enters this State?
-func Enter() -> void:
+func enter() -> void:
 	# Animation
-	player.UpdateAnimation("attack")
-	attack_anim.play("attack_" + player.AnimDirection())
-	animation_player.animation_finished.connect(EndAttack) # When animation finished, call EndAttack
+	player.update_animation("attack")
+	attack_anim.play("attack_" + player.anim_direction())
+	animation_player.animation_finished.connect(end_attack) # When animation finished, call EndAttack
 	
 	# Audio
 	audio.stream = attack_sound
@@ -35,15 +35,15 @@ func Enter() -> void:
 
 
 ## What happens when the player exits the State?
-func Exit() -> void:
-	animation_player.animation_finished.disconnect(EndAttack)
+func exit() -> void:
+	animation_player.animation_finished.disconnect(end_attack)
 	attacking = false
 	hurt_box.monitoring = false # Collision off
 	pass
 
 
 ## What happens during the _process update in this State?
-func Process(_delta : float) -> State:
+func process(_delta : float) -> State:
 	player.velocity -= player.velocity * decelerate_speed * _delta # Decrease walk speed over time
 	
 	if attacking == false:
@@ -56,15 +56,15 @@ func Process(_delta : float) -> State:
 
 
 ## What happens during the _physics_process update in this State?
-func Physics(_delta : float) -> State:
+func physics(_delta : float) -> State:
 	return null
 
 
 ## What happens with input events in this State?
-func HandleInput(_event : InputEvent) -> State:
+func handle_input(_event : InputEvent) -> State:
 	return null
 
 
-func EndAttack(_nextAnimName : String) -> void:
+func end_attack(_nextAnimName : String) -> void:
 	attacking = false
 	pass
