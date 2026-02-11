@@ -92,7 +92,8 @@ func _take_damage(hurt_box : HurtBox) -> void:
 
 # Heal or take damage
 func update_hp(delta : int) -> void:
-	hp = clampi(hp + delta, 0, max_hp)
+	hp = clampi(hp + delta, 0, max_hp) # Set HP
+	PlayerHud.update_hp(hp, max_hp) # Update GUI
 	pass
 
 
