@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ouo2ikrfxsie" path="res://Tilemaps/grass_01.tscn" id="1_dxqb8"]
 [ext_resource type="Script" uid="uid://bfa6ko76y23v2" path="res://Levels/scripts/level.gd" id="1_htphs"]
 [ext_resource type="PackedScene" uid="uid://dbhv13lwe7daf" path="res://Levels/player_spawn.tscn" id="2_esnik"]
+[ext_resource type="PackedScene" uid="uid://c8vv686s1e0db" path="res://Levels/level_transition.tscn" id="4_qqmx0"]
 
 [node name="01" type="Node2D" unique_id=1898012410]
 script = ExtResource("1_htphs")
@@ -12,3 +13,14 @@ layer_0/tile_data = PackedInt32Array(-131075, 655360, 6, -65539, 655360, 6, -3, 
 
 [node name="PlayerSpawn" parent="." unique_id=948547234 instance=ExtResource("2_esnik")]
 position = Vector2(541, 59)
+
+[node name="LevelTransition" parent="." unique_id=1626646103 instance=ExtResource("4_qqmx0")]
+position = Vector2(256, 384)
+level = "uid://77dx84ir7nlj"
+size = 4
+side = 3
+
+[node name="LevelTransition2" parent="." unique_id=173193177 instance=ExtResource("4_qqmx0")]
+position = Vector2(608, 159)
+level = "uid://cf5wpjwalb6uc"
+side = 1
